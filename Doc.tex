@@ -3,12 +3,20 @@
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{listings}
+\usepackage{algpseudocode}
+\usepackage{algorithm} 
 \usepackage{amsmath}
 \usepackage[font=footnotesize]{subcaption}
 \usepackage{bsymb}
 \usepackage{color,bcode,%citesort,
 pb-diagram}
 \setcounter{secnumdepth}{3}
+\setmainfont{Hoefler Text}
+
+% working with <let> keyword in algpseudocode
+\newcommand*\Let[2]{\State #1 $\gets$ #2}
+\algrenewcommand{\algorithmicforall}{\textbf{for each}}
+\def\ForEach{\ForAll}
 
 \newenvironment{keywords}{
        \list{}{\advance\topsep by0.35cm\relax\small
@@ -133,21 +141,41 @@ Eventually, each event is able to be translated into an bEventObject and be glue
 
 
 \subsection{Representing in Control Flow Graph} 
-An intuitive diagram allows easier understanding of the algorithm, and is a prerequisite for modularizing complex algorithms. Therefore, we construct a control flow graph out of each Event-B machine by using bEventObjects.
+An intuitive diagram allows easier understanding of the algorithm, and is a prerequisite for modularizing complex algorithms. Therefore, we show how to construct a control flow graph from each Event-B machine by using bEventObjects.
 
 %Def 2.
-The control flow graph is defined as $C = (G, N_{s}, A, L_{act})$, where:
+The control flow graph is defined as $C = (G, N_{start}, Act, L_{act}, Grd, L_{grd})$, where:
 \begin{itemize}
-	\item G is a graph $G = {N, E, S_g, T_g}$, where N is a set of nodes; E is a set of edges; $S_g : E \arrow N $is the source function for edges
+	\item G is a graph $G = (N, E, S_g, T_g)$, where N is a set of nodes; E is a set of edges; $S_g : E \rightarrow N $ is the source function for edges; and $T_g : E \rightarrow N$ is the target function for edges.
+	\item $N_{start}$ is the start node, such that $\nexists e \in E : T_g(e) = N_{start}$.
+	\item $Act$ is a set of actions.
+	\item $L_{act} : E \rightarrow Act$ is an action function.
+	\item $Grd$ is a set of guards.
+	\item $L_{grd} : E \rightarrow Grd$ is an guard function.
 \end{itemize}
 
+This graph describes the control flow of a recursive algorithm. The construction algorithm of such graph is the following:
+\begin{algorithm}
+  \caption{Representing Event-B Machine as Control Flow Graph
+    \label{alg:cfg}}
+  \begin{algorithmic}[1]
+    %\Require{}
+    \Statex
+    \Function{toCFG}{$bEventObject$}
+      \ForEach{event $e \in nextEvts $}
+        \If{$z_i \neq 0$}
+          \Let{$\delta$}{$\delta + 1$}
+        \EndIf
+      \EndFor
+      \State \Return{$\delta$}
+    \EndFunction
+  \end{algorithmic}
+\end{algorithm}
 
 
 \subsection{Representing in Recursive Algorithm}
 
 For example, pretty printing an bEventObject into a textual representation takes 3-steps, i.e. printing the bEventObject's guards, actions and nextEvts in order.
-
-
 
 \section{Proof Obligations}
 We think there are a set of proof obligations that could be generated to ensure that an Event-B machine can be translated into a recursive algorithm:
