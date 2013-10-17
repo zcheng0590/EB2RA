@@ -133,11 +133,13 @@ Eventually, each event is able to be translated into an bEventObject and be glue
 
 
 \subsection{Representing in Control Flow Graph} 
-An intuitive diagram allows easier understanding of the algorithm for first time readers, and is an important prerequisite for modularizing complex algorithms. Therefore, we construct a control flow graph out of each Event-B machine by using bEventObjects.
+An intuitive diagram allows easier understanding of the algorithm, and is a prerequisite for modularizing complex algorithms. Therefore, we construct a control flow graph out of each Event-B machine by using bEventObjects.
 
 %Def 2.
 The control flow graph is defined as $C = (G, N_{s}, A, L_{act})$, where:
-
+\begin{itemize}
+	\item G is a graph $G = {N, E, S_g, T_g}$, where N is a set of nodes; E is a set of edges; $S_g : E \arrow N $is the source function for edges
+\end{itemize}
 
 
 
