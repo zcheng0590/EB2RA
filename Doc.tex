@@ -163,11 +163,13 @@ This graph describes the control flow of a recursive algorithm. The construction
     \Statex
     \Function{toCFG}{$bEventObject$}
       \ForEach{event $e \in nextEvts $}
-        \If{$z_i \neq 0$}
-          \Let{$\delta$}{$\delta + 1$}
-        \EndIf
+        \State
+        \Call{toCFG}{e}
+        %\If{$z_i \neq 0$}
+        %  \Let{$\delta$}{$\delta + 1$}
+        %\EndIf
       \EndFor
-      \State \Return{$\delta$}
+      \State \Return{$G$}
     \EndFunction
   \end{algorithmic}
 \end{algorithm}
