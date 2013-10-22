@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.3.22)  22 OCT 2013 18:19
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.3.22)  22 OCT 2013 18:22
 entering extended mode
  %&-line parsing enabled.
 **\nonstopmode \input{"/home/zcheng/myRepo/EB2RA/Doc.tex"}
@@ -477,27 +477,6 @@ Package color Info: Driver file: pdftex.def on input line 130.
 \dg@LABONEBOX=\box35
 \dg@LABTWOBOX=\box36
 )
-! Undefined control sequence.
-l.19 \setmainfont
-                 {Hoefler Text}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-! LaTeX Error: Missing \begin{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.19 \setmainfont{H
-                   oefler Text}
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
 (/home/zcheng/myRepo/EB2RA/Doc.aux)
 \openout1 = `Doc.aux'.
 
@@ -592,10 +571,6 @@ LaTeX Info: Redefining \pageref on input line 36.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Try loading font information for U+lasy on input line 71.
 
 (/usr/share/texmf-texlive/tex/latex/base/ulasy.fd
@@ -612,19 +587,22 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 71.
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 
-LaTeX Warning: Reference `' on page 2 undefined on input line 76.
+LaTeX Warning: Reference `' on page 1 undefined on input line 76.
 
-[2]
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 83.
- (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
+
+(/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 83.
 
-<img/ebo.PNG, id=52, 133.49875pt x 143.53625pt>
+<img/ebo.PNG, id=48, 133.49875pt x 143.53625pt>
 File: img/ebo.PNG Graphic file (type png)
- <use img/ebo.PNG> [3 </home/zcheng/myRepo/EB2RA/img/ebo.PNG>]
+ <use img/ebo.PNG> [2 </home/zcheng/myRepo/EB2RA/img/ebo.PNG>]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no œ in font cmr10!
@@ -665,7 +643,7 @@ l.151 \lstset{language=[68]Algol}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[4]
+[3]
 Overfull \hbox (8.37729pt too wide) in paragraph at lines 179--180
 []\OT1/cmr/m/n/10 Instaniates two nodes, $\OML/cmm/m/it/10 N[]$ \OT1/cmr/m/n/10
  and $\OML/cmm/m/it/10 N[]$ \OT1/cmr/m/n/10 , cor-re-spond-ing to the $\OML/cmm
@@ -675,7 +653,7 @@ Overfull \hbox (8.37729pt too wide) in paragraph at lines 179--180
 
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 193.
-[5] [6]
+[4] [5]
 LaTeX Font Info:    Try loading font information for OT1+phv on input line 233.
 
  (/usr/share/texmf-texlive/tex/latex/psnfss/ot1phv.fd
@@ -698,7 +676,7 @@ Overfull \hbox (84.74023pt too wide) in paragraph at lines 306--344
 []$[]$ $[]$ 
  []
 
-[7]
+[6]
 LaTeX Font Info:    Try loading font information for OML+cmr on input line 357.
 
  (/usr/share/texmf-texlive/tex/latex/base/omlcmr.fd
@@ -707,26 +685,26 @@ File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 357.
 
-<img/pix.jpg, id=104, 743.77875pt x 551.81157pt>
+<img/pix.jpg, id=99, 743.77875pt x 551.81157pt>
 File: img/pix.jpg Graphic file (type jpg)
  <use img/pix.jpg>
-<img/alg.jpg, id=107, 562.1pt x 489.83pt>
+<img/alg.jpg, id=102, 562.1pt x 489.83pt>
 File: img/alg.jpg Graphic file (type jpg)
  <use img/alg.jpg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-AED: lastpage setting LastPage [8 </home/zcheng/myRepo/EB2RA/img/pix.jpg>]
-[9 </home/zcheng/myRepo/EB2RA/img/alg.jpg (PNG copy)>]
+AED: lastpage setting LastPage [7 </home/zcheng/myRepo/EB2RA/img/pix.jpg>]
+[8 </home/zcheng/myRepo/EB2RA/img/alg.jpg (PNG copy)>]
 (/home/zcheng/myRepo/EB2RA/Doc.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 9849 strings out of 495061
- 142998 string characters out of 1182621
- 249182 words of memory out of 3000000
+ 9848 strings out of 495061
+ 142992 string characters out of 1182621
+ 249171 words of memory out of 3000000
  12792 multiletter control sequences out of 15000+50000
  16540 words of font info for 58 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
@@ -748,9 +726,9 @@ fb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/shar
 e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-tex
 live/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/
 type1/urw/helvetic/uhvr8a.pfb>
-Output written on Doc.pdf (9 pages, 355356 bytes).
+Output written on Doc.pdf (8 pages, 353965 bytes).
 PDF statistics:
- 185 PDF objects out of 1000 (max. 8388607)
- 37 named destinations out of 1000 (max. 500000)
+ 178 PDF objects out of 1000 (max. 8388607)
+ 36 named destinations out of 1000 (max. 500000)
  80 words of extra memory for PDF output out of 10000 (max. 10000000)
 
