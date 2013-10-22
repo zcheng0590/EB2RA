@@ -68,9 +68,9 @@ Event-B is a formal modelling language, based on refinement calculas. It uses se
 
 Rodin platform is a tool set that help orgnize the information for systems written in Event-B. In addition, it provides theroem proving facilities that allow mathematical proofs to be semi-automatically discharged.
 
-An Event-B model consists of the $contexts$ and $machines$. The $contexts$ give static information about the model, which will be refered in the machines. The machines express dynamic information about the model via $events$, which modify state variables and cause the model moving into a particular state. Optionally, the machine can express other properties, such as invariant and safty properties of the model.
+An Event-B model consists of the $contexts$ and $machines$. The $contexts$ give static information about the model, which will be refered in the $machines$. The $machines$ express dynamic information about the model via $events$. They can modify state variables and cause the Event-B model moving into a particular state. Optionally, the machine can express other properties, such as invariant and safty properties of the model.
 
-Each event is triggered by conditions (i.e. $guards$) to take $actions$. When the Event-B model is in a state that satifies all the guards of an event, such event will take effect by performing defined actions.
+Each event can be triggered by conditions (i.e. $guards$) to take $actions$. When the Event-B model is in a state that satifies all the guards of an event, such event will take effect by performing defined actions.
 
 % [ZHENG 21/10/2013] Might be an example of Evnet-B model with control variable? 
 The control variable is an mechanism to control how the events interact with each other\ref{}. The user defines a set of control labels in the context, and declare a state variable (namely the control variable) in the machine to refer these labels. The control variable does not serve any purposes to the state of Event-B model. It only keeps track of an implicit control flow of the Event-B model. More specifically, if an event's guard refer to the control variable, it implies which events that lead to the current event. If an event's actions refer to the control variable, it suggests which events the current event can move into. 
@@ -158,52 +158,49 @@ The guards of recursive events are not included in the guards of the bEventObjec
 
 Notice that it is possible that more than one event's name with the same signature exists, where only the guards of these events differ. They show different outcomes when executing the same recursive call. Thus, they should be combined. The plug-in uses \textbf{self\_destructed} part in the event name to control which event to display (i.e. among all related events for a recursive call, only one of them is displayed). 
 
-Eventually, each event is able to be translated into an bEventObject and be related through the $nextEvts$ association. Next, we illustrate the algorithms that translate bEventObjects into the control flow graph (Section~\ref{}) and the recursive algorithm (Section~\ref{}).
+Eventually, each event is able to be translated into an bEventObject and be related through the $nextEvts$ association. Next, we illustrate the algorithms that translate bEventObjects into the control flow graph (Section~\ref{subsect:vis}) and the recursive algorithm (Section~\ref{subsect:ra}).
 
 
-\subsection{Representing in Control Flow Graph} 
-An intuitive diagram allows easier understanding of the algorithm, and is a prerequisite for modularizing complex algorithms. Therefore, we construct a control flow graph for each Event-B model by using bEventObjects.
+\subsection{Representing in Control Flow Graph} \label{subsect:vis}
+An intuitive diagram allows easier understanding of the algorithm, and is a prerequisite for modularizing complex algorithms. Therefore, we construct a control flow graph for each Event-B model by using $bEventObjects$.
 
 %Def 2.
-The control flow graph is defined as $CFG = (G, N_{start}, Act, E_{act}, Grd, E_{grd})$, where:
+The control flow graph is defined as $CFG = (G, Act, E_{act}, Grd, E_{grd})$, where:
 \begin{itemize}
 	\item G is a directed graph $G = (N, E, S_g, T_g)$, where N is a set of nodes; E is a set of directed edges; $S_g : E \rightarrow N $ is the source function for edges; and $T_g : E \rightarrow N$ is the target function for edges.
-	\item $N_{start}$ is the start node, such that $\nexists e \in E : T_g(e) = N_{start}$.
 	\item $Act$ is a set of actions.
 	\item $E_{act} : E \rightarrow Act$ is an action function. 
 	\item $Grd$ is a set of guards.
 	\item $E_{grd} : E \rightarrow Grd$ is an guard function.
 \end{itemize}
 
-% Explain of the graph. , which attach an Event-B action to an edge.
-$G$ defines the structure of the control flow graph. The set $N$ in $G$ is derived from the control variables in each $bEventObject$. An element in $N$ if and only if it is a label 
-The set $E$ contains directed edge of $G$. Using $S_g$ and $T_g$, we can locate the source node and target node of a given edge respectively. 
+Our plugin iterates over all the $bEventObjects$ to construct such a $CFG$. On treversing each $bEventObject$, our plugin:
+\begin{enumerate}
+	\item Instaniates two nodes, $N_{cvi}$ and $N_{cve}$ , corresponding to the $cvi$ and $cve$ in the $bEventObject$, and adds them to the set $N$.
+	\item Adds the $actions$ of this $bEventObject$ into the set $Act$.
+	\item Adds the $gurads$ of this $bEventObject$ into the set $Grd$.
+	\item Creates a fresh edge $e$ and add into $E$, where $S_g(e) = N_{cvi}$ and $T_g(e) = N_{cve}$; Then, adding $\{e \mapsto actions\}$ to $E_{act}$ (i.e. attachs Event-B actions to the edge $e$); Finally, adding $\{e \mapsto guards\}$ to $E_{grd}$.
+\end{enumerate}
 
-$N_start$ is the entry node of $G$, and none of the other node points to the $N_start$.
 
+%For example, pretty printing an bEventObject into a textual representation takes 3-steps, i.e. printing the bEventObject's guards, actions and nextEvts in order.
 
+\subsection{Representing in Recursive Algorithm}\label{subsect:ra}
+To help generate a recursive implementation from the Event-B specification, we design the pretty print procedure $Print$ as indicated in Alg~\ref{alg:ra}.
 
-
-\subsection{Representing in Recursive Algorithm}
-
-For example, pretty printing an bEventObject into a textual representation takes 3-steps, i.e. printing the bEventObject's guards, actions and nextEvts in order.
-
-This graph describes the control flow of a recursive algorithm. The construction of such graph is decribed by the following algorithm:
 \begin{algorithm}
   \caption{Representing Event-B Machine as Control Flow Graph
-    \label{alg:cfg}}
+    \label{alg:ra}}
   \begin{algorithmic}[1]
-    %\Require{}
     \Statex
-    \Function{toCFG}{$bEventObject$}
-      \ForEach{event $e \in nextEvts $}
+    \Function{Print}{o: $bEventObject$}
+        \State \Call{PrintGuards}{o.guards}
+        \State \Call{PrintActions}{o.actions}
+      \ForEach{$bEventObject$ $e \in o.nextEvts $}
         \State
-        \Call{toCFG}{e}
-        %\If{$z_i \neq 0$}
-        %  \Let{$\delta$}{$\delta + 1$}
-        %\EndIf
+        \Call{Print}{e}
       \EndFor
-      \State \Return{$G$}
+      %\State \Return{$G$}
     \EndFunction
   \end{algorithmic}
 \end{algorithm}
@@ -360,8 +357,7 @@ and the REC@rightsearchKO is shorthand for:
 	rec@binsearch(t,mi+1,hi,val;ok,result)@val>t(mi) && mi+1<=hi
 \end{lstlisting} 
 
-% [Zheng]
-The result of our translation is two-fold. First, to help people comprehend the algorithm, the plug-in reads in the Event-B machine and visualize it as in Fig~\ref{fig:pix}. This is done by translating an bEventObject into a format that can be recognize by the \textit{Dot} tool of \textit{GraphViz} \footnote{http://www.graphviz.org/}. In a nutshell, the plug-in draws a circle for each label, and the arrow between two circles indicates that an event occurs. The guards of such an event label the arrow, and the event's actions are indicated the text in the square box. 
+The result of our translation is two-fold. First, to help people comprehend the algorithm, the plug-in reads in the Event-B machine and visualize it as in Fig~\ref{fig:pix}. This is done by translating an bEventObject into the $CFG$ as described in Section~\ref{subsect:vis}. We use the \textit{Dot} tool of \textit{GraphViz} to assist this translation \footnote{http://www.graphviz.org/}. In a nutshell, we draws a circle for each node, and the directed edge between two nodes indicates that an event occurs. The guards of such an event label the arrow, and the event's actions are indicated the text in the square box. 
 
 \begin{figure}[!h]
   \centering
@@ -370,19 +366,13 @@ The result of our translation is two-fold. First, to help people comprehend the 
   \label{fig:pix}
 \end{figure}
 
-Second, in Fig~\ref{fig:pix}, a textual representation of the binary search algorithm is given.
+Second, in Fig~\ref{fig:pix}, a textual representation of the binary search algorithm is given. It is constructed from the pretty print procedure $Print$ as described in Alg~\ref{alg:ra}.
 \begin{figure}[!h]
   \centering
     \includegraphics[width=0.5\textwidth]{img/alg.jpg}
   \caption{Textual Representation of the Binary Search Algorithm}
   \label{fig:alg}
 \end{figure}
-
-
-
-
-
-
 
 
 \end{document}
