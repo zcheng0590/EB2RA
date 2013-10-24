@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.3.22)  22 OCT 2013 18:22
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.3.22)  24 OCT 2013 17:15
 entering extended mode
  %&-line parsing enabled.
 **\nonstopmode \input{"/home/zcheng/myRepo/EB2RA/Doc.tex"}
@@ -571,17 +571,17 @@ LaTeX Info: Redefining \pageref on input line 36.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for U+lasy on input line 71.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 57.
 
 (/usr/share/texmf-texlive/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 71.
+LaTeX Font Info:    Try loading font information for U+msa on input line 57.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 71.
+LaTeX Font Info:    Try loading font information for U+msb on input line 57.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
@@ -600,16 +600,16 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 83.
 
-<img/ebo.PNG, id=48, 133.49875pt x 143.53625pt>
+<img/ebo.PNG, id=50, 133.49875pt x 143.53625pt>
 File: img/ebo.PNG Graphic file (type png)
- <use img/ebo.PNG> [2 </home/zcheng/myRepo/EB2RA/img/ebo.PNG>]
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ú in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ù in font cmr10!
+ <use img/ebo.PNG>
+Overfull \hbox (6.18764pt too wide) in paragraph at lines 101--102
+[]\OT1/cmr/m/n/10 A bEven-tO-b-ject $\OML/cmm/m/it/10 E[]$ \OT1/cmr/m/n/10 is a
+ 7-tuple, where $\OML/cmm/m/it/10 E[] \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 cvi; 
+cve; type; name; guards; actions; nextEvts\OT1/cmr/m/n/10 )$.
+ []
 
+[2 </home/zcheng/myRepo/EB2RA/img/ebo.PNG>]
 (/usr/share/texmf-texlive/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
@@ -644,51 +644,56 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 [3]
-Overfull \hbox (8.37729pt too wide) in paragraph at lines 179--180
-[]\OT1/cmr/m/n/10 Instaniates two nodes, $\OML/cmm/m/it/10 N[]$ \OT1/cmr/m/n/10
- and $\OML/cmm/m/it/10 N[]$ \OT1/cmr/m/n/10 , cor-re-spond-ing to the $\OML/cmm
-/m/it/10 cvi$ \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 cve$ \OT1/cmr/m/n/10 in the
- $\OML/cmm/m/it/10 bEventObject$\OT1/cmr/m/n/10 ,
+Overfull \hbox (11.9884pt too wide) in paragraph at lines 179--180
+[]\OT1/cmr/m/n/10 Instantiates two nodes, $\OML/cmm/m/it/10 N[]$ \OT1/cmr/m/n/1
+0 and $\OML/cmm/m/it/10 N[]$ \OT1/cmr/m/n/10 , cor-re-spond-ing to the $\OML/cm
+m/m/it/10 cvi$ \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 cve$ \OT1/cmr/m/n/10 in th
+e $\OML/cmm/m/it/10 bEventObject$\OT1/cmr/m/n/10 ,
  []
 
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 193.
+put line 190.
 [4] [5]
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 233.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 231.
 
  (/usr/share/texmf-texlive/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
-(Font)              scaled to size 8.50006pt on input line 233.
+(Font)              scaled to size 8.50006pt on input line 231.
 
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 230--267
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 228--265
 []$[]$ $[]$ 
  []
 
 
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 271--303
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 269--301
 []$[]$ $[]$ 
  []
 
 
-Overfull \hbox (84.74023pt too wide) in paragraph at lines 306--344
+Overfull \hbox (84.74023pt too wide) in paragraph at lines 304--342
 []$[]$ $[]$ 
  []
 
 [6]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 357.
+Overfull \hbox (2.82294pt too wide) in paragraph at lines 349--350
+\OT1/cmr/m/n/10 ven-tion so that the plug-in knows how to pro-cess it. In this 
+ex-am-ple, the \OT1/cmr/bx/n/10 REC@rightsearchOK
+ []
 
- (/usr/share/texmf-texlive/tex/latex/base/omlcmr.fd
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 355.
+
+(/usr/share/texmf-texlive/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 357.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 355.
 
-<img/pix.jpg, id=99, 743.77875pt x 551.81157pt>
+<img/pix.jpg, id=102, 743.77875pt x 551.81157pt>
 File: img/pix.jpg Graphic file (type jpg)
  <use img/pix.jpg>
-<img/alg.jpg, id=102, 562.1pt x 489.83pt>
+<img/alg.jpg, id=105, 562.1pt x 489.83pt>
 File: img/alg.jpg Graphic file (type jpg)
  <use img/alg.jpg>
 
@@ -702,13 +707,13 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 9848 strings out of 495061
- 142992 string characters out of 1182621
- 249171 words of memory out of 3000000
- 12792 multiletter control sequences out of 15000+50000
- 16540 words of font info for 58 fonts, out of 3000000 for 9000
+ 9859 strings out of 495061
+ 143099 string characters out of 1182621
+ 249220 words of memory out of 3000000
+ 12799 multiletter control sequences out of 15000+50000
+ 17892 words of font info for 64 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 47i,17n,45p,710b,1116s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 47i,17n,45p,770b,1116s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{algorithm.1} has been referenced but does not exi
 st, replaced by a fixed one
 
@@ -718,17 +723,19 @@ st, replaced by a fixed one
 sfonts/cm/cmbx9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
 csc10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
 /usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/t
-exmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive
-/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1
-/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfo
-nts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.p
-fb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/shar
-e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-tex
-live/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/
-type1/urw/helvetic/uhvr8a.pfb>
-Output written on Doc.pdf (8 pages, 353965 bytes).
+exmf-texlive/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-texlive
+/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1
+/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsf
+onts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.
+pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-texl
+ive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/t
+ype1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-texlive/fonts/type1/public/
+amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvr8
+a.pfb>
+Output written on Doc.pdf (8 pages, 370950 bytes).
 PDF statistics:
- 178 PDF objects out of 1000 (max. 8388607)
+ 187 PDF objects out of 1000 (max. 8388607)
  36 named destinations out of 1000 (max. 500000)
  80 words of extra memory for PDF output out of 10000 (max. 10000000)
 

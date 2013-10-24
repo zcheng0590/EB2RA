@@ -1,7 +1,8 @@
 % v0.2
 % - Introduction section added
 % - typos revised
-% - 
+% - Add a definition for our control flow graph, and explain its contruction in Section 2.2.
+% - Explain the translation from an Event-B specification into its recursive  implementation in Section 2.3.
 
 
 \documentclass{easychair}
@@ -54,7 +55,7 @@ Co. Kildare, Ireland\\
 \maketitle  
 
 \begin{abstract}
-Event-B is a modelling language. It allows the user to develop software or algorithm in a step-by-step manner, i.e. refining an inital high level specification into a final concrete specification. In previous work, one of the author and her collegue decribes an approach that translating the final concrete specification into recursive and iterative implementation. In this document, we provide technical details of how the translation is performed. Moreover, we interest in the visualization of recursive algorithm for better readability and understandability.
+$Event-B$ is a modelling language. It allows the user to develop software or algorithm in a step-by-step manner (i.e. refining an initial high level specification into a final concrete specification). In previous work, one of the author and her colleague describe an approach that translating the final concrete specification into recursive and iterative implementation. In this document, we provide technical details of how the translation is performed. Moreover, we interest in the visualization of recursive algorithms to enhance their readability and understandability.
  
 \end{abstract}   
 
@@ -63,29 +64,32 @@ Event-B is a modelling language. It allows the user to develop software or algor
  Recursive Algorithm
 \end{keywords}
 
-\section{Introduction} % [ZHENG 21/10/2013] Newly added from v0.0
-Event-B is a formal modelling language, based on refinement calculas. It uses set theory as a modelling notation, and use refinement to represent software systems at different abstraction levels. The use of mathematical proof will verify consistency between refinement levels.
+\section{Introduction} % [ZHENG 21/10/2013] Newly added in v0.2
+Event-B is a formal modelling language, based on the $refinement calculus$. It uses set theory as a modelling notation, and use refinement to represent software systems at different abstraction levels. The use of mathematical proof will verify consistency between refinement levels.
 
-Rodin platform is a tool set that help orgnize the information for systems written in Event-B. In addition, it provides theroem proving facilities that allow mathematical proofs to be semi-automatically discharged.
+$Rodin$ platform is a tool set that helps organize the information for systems written in Event-B. In addition, it provides theorem proving facilities that allow mathematical proofs to be semi-automatically discharged.
 
-An Event-B model consists of the $contexts$ and $machines$. The $contexts$ give static information about the model, which will be refered in the $machines$. The $machines$ express dynamic information about the model via $events$. They can modify state variables and cause the Event-B model moving into a particular state. Optionally, the machine can express other properties, such as invariant and safty properties of the model.
+An Event-B model consists of $contexts$ and $machines$. The contexts give static information about the model, which will be referred in the machines. The machines express dynamic information about the model via $events$. They can modify $state variables$ and cause the Event-B model moving into different states. Optionally, a machine can express other properties, such as invariants and safety properties of the model.
 
-Each event can be triggered by conditions (i.e. $guards$) to take $actions$. When the Event-B model is in a state that satifies all the guards of an event, such event will take effect by performing defined actions.
+Each event can be triggered by conditions (i.e. the $guards$) to take $actions$. When the Event-B model is in a state that satisfies all the guards of an event, such event will take effect by performing defined actions.
 
 % [ZHENG 21/10/2013] Might be an example of Evnet-B model with control variable? 
-The control variable is an mechanism to control how the events interact with each other\ref{}. The user defines a set of control labels in the context, and declare a state variable (namely the control variable) in the machine to refer these labels. The control variable does not serve any purposes to the state of Event-B model. It only keeps track of an implicit control flow of the Event-B model. More specifically, if an event's guard refer to the control variable, it implies which events that lead to the current event. If an event's actions refer to the control variable, it suggests which events the current event can move into. 
+The usage of $control variable$ is an mechanism to control how the events interact with each other\ref{}: The user first defines a set of control labels in the context, and declares a state variable (a.k.a the control variable) in the machine to refer these labels. The control variable does not serve any purposes to the state of a Event-B model. It only keeps track of an implicit control flow of the Event-B model. More specifically, if an event's guard refer to the control variable, it implies which events that lead to the current event. If an event's actions refer to the control variable, it suggests which events the current event can move into. 
 
-In this document, we draw on the control variable mechanism in Event-B model, and present a plugin that read in an Event-B model to produce recursive algorithm and its visualized representation.
+In this document, we draw on the usage of control variable to develop a Rodin plugin. This plugin reads in an Event-B model to produce recursive algorithm and its visualized representation.
  
-\section{The Translation Procedure}
-To allow our plug-in understand that how to process an Event-B machine, the user needs to define a configuration file. This configuration file should specify at least:
+\section{The Translation Procedure}\label{sect:tp}
+To allow our plug-in understand that how to process an Event-B model, the user needs to define a configuration file. This configuration file should specify at least:
 \begin{itemize}
 	\item The method signature under consideration.
-	\item The name of the control variable (a.k.a label).
+	\item The name of the control variable.
 	\item The name of the start label.
+	\item The name of Event-B machine to be processed.
 \end{itemize}
 
-Our plugin reads in the configuration file and starts to process the Event-B machine. To reduce the translation complexity from a Event-B machine to its corresponding recursive algorithm, the plug-in extracts required information out of each event in the original Event-B machine, and stores it in a data structure called \textbf{bEventObject} (see Fig~\ref{fig:ebo}). 
+Our plugin reads in the configuration file and starts to process the Event-B model. The target of plugin is the final concrete specification which specified in the configuration file.
+
+To reduce the translation complexity from an Event-B machine to its corresponding recursive algorithm, the plug-in extracts required information out of each event in the original Event-B machine, and stores in a data structure called \textbf{bEventObject} (see Fig~\ref{fig:ebo}). 
 
 \begin{figure}[!h]
   \centering
@@ -95,10 +99,10 @@ Our plugin reads in the configuration file and starts to process the Event-B mac
 \end{figure}
 
 %Def 1.
-The bEventObject is a 7-tuple $E_o = (cvi, cve, type, name, guards, actions, nextEvts)$, which consists of:
+A bEventObject $E_o$ is a 7-tuple, where $E_o = (cvi, cve, type, name, guards, actions, nextEvts)$. It consists of:
 \begin{itemize}
-	\item The initial control variable (cvi).
-	\item The end control variable (cve).
+	\item The control variable initial (cvi).
+	\item The control variable end (cve).
 	\item The type of the event (type).
 	\item The name of the event (name).
 	\item A set of guards of the event (guards).
@@ -107,62 +111,59 @@ The bEventObject is a 7-tuple $E_o = (cvi, cve, type, name, guards, actions, nex
 \end{itemize}
 Next, we describe how to extracted these information from the event under consideration.
 
-Each event can reference the control variable in the guards or actions. This control variable controls the order that events take place. The \textbf{cvi} and \textbf{cve} in the bEventObject (see Fig~\ref{fig:ebo}) are short hand for control-variable-initial and control-variable-end. The $cvi$ is used to determine which events that lead to the current event. The $cve$ is used to determine which events the current event can move into. They are derived from the guards and actions of the original event respectively (i.e. extracting the action/guard that references the control variable).
+Each event can reference the control variable in the guards or actions. This control variable controls the order that events take place. The $cvi$ and $cve$ in the bEventObject (see Fig~\ref{fig:ebo}) are short hand for control-variable-initial and control-variable-end. The former one is used to determine which events that lead to the current event. The latter one is used to determine which events the current event can move into. They are derived from the guards and actions of the original event respectively (i.e. extracting the action/guard that references the control variable).
 
-The \textbf{type} of a bEventObject is determined by the name of event under consideration:
+The $type$ is determined by the name of an event:
 \begin{itemize}
-	\item An event has a \textbf{recursive} type if the event name starts with \textbf{REC} (case insensitive).
-	\item An event has a \textbf{call} type if the event name starts with \textbf{CALL} (case insensitive).
-	\item An event has a \textbf{normal} type if it is not one of the above cases.
+	\item An event has a \textbf{recursive} type if the event's name starts with \textbf{REC} (case insensitive).
+	\item An event has a \textbf{call} type if the event's name starts with \textbf{CALL} (case insensitive).
+	\item An event has a \textbf{normal} type if it is none of the above cases.
 \end{itemize}
 
-
-The \textbf{guards} of the bEventObject are derived according to the following rules:
+The $guards$ are derived according to the following rules:
 \begin{itemize}
-	\item The guards that reference the control variable are not included for the any event.
+	\item The guards that reference the control variable are not included for any event.
 	\item The guards are not included for the event of recursive or call type.
 	\item In the case of recursive or call type for the event, additional guards might be added from the event name, depending on whether guards appear in the event name (see Section~\ref{subsec:issue}).  
 \end{itemize}
 
-The \textbf{actions} of the bEventObject are derived according to the following rules:
+The $actions$ are derived according to the following rules:
 \begin{itemize}
-	\item The non-deterministic actions are not included for any event, i.e. becomes\_such\_that assignment  and becomes\_in\_set assignment are eliminated when parsing the event actions.
+	\item The non-deterministic actions are not included for any event, i.e. becomes\_such\_that assignment and becomes\_in\_set assignment are eliminated when parsing the event actions.
 	\item The actions that reference the control variable are not included for any event.
 	\item The actions is not included for the event of recursive or call type.
 	\item An additional action is added from the event name for an event of recursive or call type (see Section~\ref{subsec:issue}).  
 \end{itemize}
 
-In bEventObject, the \textbf{nextEvts} association helps the plug-in understand how the transition system progress (i.e. where an event moves to the next). An bEventObject \textbf{x} counts as the “next event” of target bEventObject \textbf{y} if it has the following property:
+The $nextEvts$ association in a bEventObject helps the plug-in to understand how the transition system progress (i.e. where an event should moves to the next). An event \textbf{x} counts as the next event of a target event \textbf{y} if it has the following property:
 \begin{lstlisting}
 	x.cvi = y.cve
 \end{lstlisting}
-Such an event y is then added to the nextEvts list of the target event x.
-
 
 \subsection{Processing Event with Recursive/Call Type}\label{subsec:issue}
 The recursive (or call) type events must follow the following naming convention, so that the plug-in knows how to process it:
 
 \lstset{language=[68]Algol}
 \begin{lstlisting}
-	rec@call_signature@grds@self_destructed
+	rec@call_signature@Guards@self_destructed
 \end{lstlisting}
 
-The \textbf{rec} indicates this event is of recursive type. The \textbf{call\_signature} part indicates the function call to be invoked by the event. It takes the format:
+The \textbf{rec} indicates this event is of recursive type. The \textbf{call\_signature} part indicates the name of the function call to be invoked. It takes the format:
 \lstset{language=[68]Algol}
 \begin{lstlisting}
 	call_name(in_parameters; out_parameters)
 \end{lstlisting} 
-This signature is easy to turn into a deterministic action, which can then be added to the action list of the bEventObject. 
+This function signature is easy to turn into an Event's action, and added to the action list of a bEventObject. 
 
-The guards of recursive events are not included in the guards of the bEventObject. The reason is that we use the \textbf{grds} part of event name to show under which the recursive call is allowed to be invoked. In the case that an recursive event has no guards, we specify \textbf{NULL} in the grds part of the name. 
+As described in Section~\ref{sect:tp}, the guards for events of recursive/call type are not included in the guards of the bEventObject. The reason is that the guards for an event of recursive/call type is explicitly given in the event's name. In the case that an event of recursive/call type has no guards, we specify \textbf{NULL}. 
 
-Notice that it is possible that more than one event's name with the same signature exists, where only the guards of these events differ. They show different outcomes when executing the same recursive call. Thus, they should be combined. The plug-in uses \textbf{self\_destructed} part in the event name to control which event to display (i.e. among all related events for a recursive call, only one of them is displayed). 
+It is possible that more than one event's name with the same signature exists, where only the guards of these events differ. They show different outcomes when executing the same recursive call. Thus, they should be combined. The plug-in uses \textbf{self\_destructed} part in the event name to control which event to display (i.e. among all related events for a recursive call, only one of them is displayed). 
 
-Eventually, each event is able to be translated into an bEventObject and be related through the $nextEvts$ association. Next, we illustrate the algorithms that translate bEventObjects into the control flow graph (Section~\ref{subsect:vis}) and the recursive algorithm (Section~\ref{subsect:ra}).
+Eventually, each event is able to be translated into an bEventObject and be related through the $nextEvts$ association. Next, we illustrate the algorithms that translate bEventObjects into a control flow graph (Section~\ref{subsect:vis}) and the recursive algorithm (Section~\ref{subsect:ra}).
 
 
 \subsection{Representing in Control Flow Graph} \label{subsect:vis}
-An intuitive diagram allows easier understanding of the algorithm, and is a prerequisite for modularizing complex algorithms. Therefore, we construct a control flow graph for each Event-B model by using $bEventObjects$.
+An intuitive diagram allows easier understanding of the algorithm, and is a prerequisite for modularizing complex algorithms. Therefore, we construct a control flow graph for each Event-B model by using bEventObjects.
 
 %Def 2.
 The control flow graph is defined as $CFG = (G, Act, E_{act}, Grd, E_{grd})$, where:
@@ -174,16 +175,13 @@ The control flow graph is defined as $CFG = (G, Act, E_{act}, Grd, E_{grd})$, wh
 	\item $E_{grd} : E \rightarrow Grd$ is an guard function.
 \end{itemize}
 
-Our plugin iterates over all the $bEventObjects$ to construct such a $CFG$. On treversing each $bEventObject$, our plugin:
+Our plugin iterates over all the $bEventObjects$ to construct such a $CFG$. On traversing each $bEventObject$, our plugin:
 \begin{enumerate}
-	\item Instaniates two nodes, $N_{cvi}$ and $N_{cve}$ , corresponding to the $cvi$ and $cve$ in the $bEventObject$, and adds them to the set $N$.
+	\item Instantiates two nodes, $N_{cvi}$ and $N_{cve}$ , corresponding to the $cvi$ and $cve$ in the $bEventObject$, and adds them to the set $N$.
 	\item Adds the $actions$ of this $bEventObject$ into the set $Act$.
 	\item Adds the $gurads$ of this $bEventObject$ into the set $Grd$.
 	\item Creates a fresh edge $e$ and add into $E$, where $S_g(e) = N_{cvi}$ and $T_g(e) = N_{cve}$; Then, adding $\{e \mapsto actions\}$ to $E_{act}$ (i.e. attachs Event-B actions to the edge $e$); Finally, adding $\{e \mapsto guards\}$ to $E_{grd}$.
 \end{enumerate}
-
-
-%For example, pretty printing an bEventObject into a textual representation takes 3-steps, i.e. printing the bEventObject's guards, actions and nextEvts in order.
 
 \subsection{Representing in Recursive Algorithm}\label{subsect:ra}
 To help generate a recursive implementation from the Event-B specification, we design the pretty print procedure $Print$ as indicated in Alg~\ref{alg:ra}.
@@ -210,20 +208,21 @@ To help generate a recursive implementation from the Event-B specification, we d
 \section{Proof Obligations}
 We think there are a set of proof obligations that could be generated to ensure that an Event-B machine can be translated into a recursive algorithm:
 \begin{itemize}
-	\item The control variable in the actions and guards of each event are different. (i.e. the event progress)
-	\item The labels in the Event-B machine forms an acyclic graph.
+	\item The control variable in the actions and guards of each event are different. (i.e. the event always progresses)
+	\item The labels in an Event-B machine forms an acyclic graph.
 	\item Only one event does not have control variable in its guards (i.e. the start event).
 	\item Only one event does not have control variable in its actions (i.e. the end event).
 	\item The control variable in the events' actions is deterministic (i.e. An Event always know which label it should move into).
-	\item Recursive calls and external function calls are legal (i.e. type checked, signature matched).
-	\item If the $out$ label associates with more than one event, all these events should have guard(s) presented. Moreover, these guards should not overlap and should eventually converge.
+	%\item Recursive calls and external function calls are legal (i.e. they are defined).
+	\item If an event has more than one outgoing edges, then all these edges should be labelled with guards, and eventually converged. Moreover, these guards should be independent to each other.
+	
 \end{itemize}
 
 \newpage
 \section{Case Study}
 
 \subsection{Binary Search Algorithm}
-The first case study targets the binary search algorithm developed in the Event-B machine (a part of the machine is displayed in Fig~\ref{fig:mac}).
+The first case study targets the \textbf{binary search} algorithm developed in the Event-B machine (a part of the machine is displayed in Fig~\ref{fig:mac}).
 \begin{figure}[!h]
   \centering
 \begin{minipage}{1.0\linewidth}
@@ -348,7 +347,7 @@ $
 
 \newpage
 
-As described in Section~\ref{subsec:issue}, the event of recursive/call type need to follow a naming convention so that the plug-in knows how to process it. In this example, the \textbf{REC@rightsearchOK} and \textbf{REC@rightsearchKO} are event of recursive type.  Their event name has been shortened in the above machine. The REC@rightsearchOK is a shorthand for:
+As described in Section~\ref{subsec:issue}, the event of recursive/call type need to follow the naming convention so that the plug-in knows how to process it. In this example, the \textbf{REC@rightsearchOK} and \textbf{REC@rightsearchKO} are event of recursive type.  Their event name has been shortened in the above machine. The REC@rightsearchOK is a shorthand for:
 \begin{lstlisting}
 	rec@binsearch(t,mi+1,hi,val;ok,result)@NULL@SELF_DESTRUCTED
 \end{lstlisting} 
@@ -357,7 +356,7 @@ and the REC@rightsearchKO is shorthand for:
 	rec@binsearch(t,mi+1,hi,val;ok,result)@val>t(mi) && mi+1<=hi
 \end{lstlisting} 
 
-The result of our translation is two-fold. First, to help people comprehend the algorithm, the plug-in reads in the Event-B machine and visualize it as in Fig~\ref{fig:pix}. This is done by translating an bEventObject into the $CFG$ as described in Section~\ref{subsect:vis}. We use the \textit{Dot} tool of \textit{GraphViz} to assist this translation \footnote{http://www.graphviz.org/}. In a nutshell, we draws a circle for each node, and the directed edge between two nodes indicates that an event occurs. The guards of such an event label the arrow, and the event's actions are indicated the text in the square box. 
+The result of our translation is two-fold. First, to help people comprehend the algorithm, the plug-in reads in the Event-B machine and visualize it as in Fig~\ref{fig:pix}. This is done by translating an bEventObject into the $CFG$ as described in Section~\ref{subsect:vis}. We use the \textit{Dot} tool of \textit{GraphViz} to assist this translation \footnote{http://www.graphviz.org/}. In a nutshell, we draws a circle for each node, and the directed edge between two nodes indicates that an event occurs. The guards of such an event label the arrow, and the event's actions are indicated the text of the square box. 
 
 \begin{figure}[!h]
   \centering
