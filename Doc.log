@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.3.22)  24 OCT 2013 17:15
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.3.22)  24 OCT 2013 18:09
 entering extended mode
  %&-line parsing enabled.
 **\nonstopmode \input{"/home/zcheng/myRepo/EB2RA/Doc.tex"}
@@ -480,20 +480,20 @@ Package color Info: Driver file: pdftex.def on input line 130.
 (/home/zcheng/myRepo/EB2RA/Doc.aux)
 \openout1 = `Doc.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
 
 (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -551,7 +551,7 @@ driver: pdftex
 \@twosidetrue \@mparswitchtrue 
 (1in=72.27pt, 1cm=28.45pt)
 -----------------------
-Package hyperref Info: Link coloring OFF on input line 36.
+Package hyperref Info: Link coloring OFF on input line 37.
 (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 
@@ -560,8 +560,8 @@ Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
 \c@section@level=\count181
 )
-LaTeX Info: Redefining \ref on input line 36.
-LaTeX Info: Redefining \pageref on input line 36.
+LaTeX Info: Redefining \ref on input line 37.
+LaTeX Info: Redefining \pageref on input line 37.
 
 (/home/zcheng/myRepo/EB2RA/Doc.out) (/home/zcheng/myRepo/EB2RA/Doc.out)
 \@outlinefile=\write3
@@ -571,39 +571,35 @@ LaTeX Info: Redefining \pageref on input line 36.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for U+lasy on input line 57.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 58.
 
 (/usr/share/texmf-texlive/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 57.
+LaTeX Font Info:    Try loading font information for U+msa on input line 58.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 57.
+LaTeX Font Info:    Try loading font information for U+msb on input line 58.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-)
-
-LaTeX Warning: Reference `' on page 1 undefined on input line 76.
-
-[1
+) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 83.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 89.
 
 (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 83.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 89.
 
-<img/ebo.PNG, id=50, 133.49875pt x 143.53625pt>
+<img/ebo.PNG, id=53, 133.49875pt x 143.53625pt>
 File: img/ebo.PNG Graphic file (type png)
  <use img/ebo.PNG>
-Overfull \hbox (6.18764pt too wide) in paragraph at lines 101--102
+Overfull \hbox (6.18764pt too wide) in paragraph at lines 107--108
 []\OT1/cmr/m/n/10 A bEven-tO-b-ject $\OML/cmm/m/it/10 E[]$ \OT1/cmr/m/n/10 is a
  7-tuple, where $\OML/cmm/m/it/10 E[] \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 cvi; 
 cve; type; name; guards; actions; nextEvts\OT1/cmr/m/n/10 )$.
@@ -626,7 +622,7 @@ See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.145 \lstset{language=[68]Algol}
+l.151 \lstset{language=[68]Algol}
                                  
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -638,84 +634,81 @@ See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.151 \lstset{language=[68]Algol}
+l.157 \lstset{language=[68]Algol}
                                  
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 [3]
-Overfull \hbox (11.9884pt too wide) in paragraph at lines 179--180
+Overfull \hbox (11.9884pt too wide) in paragraph at lines 185--186
 []\OT1/cmr/m/n/10 Instantiates two nodes, $\OML/cmm/m/it/10 N[]$ \OT1/cmr/m/n/1
 0 and $\OML/cmm/m/it/10 N[]$ \OT1/cmr/m/n/10 , cor-re-spond-ing to the $\OML/cm
 m/m/it/10 cvi$ \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 cve$ \OT1/cmr/m/n/10 in th
 e $\OML/cmm/m/it/10 bEventObject$\OT1/cmr/m/n/10 ,
  []
 
+[4]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 190.
-[4] [5]
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 231.
+put line 196.
+ [5]
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 241.
 
  (/usr/share/texmf-texlive/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
-(Font)              scaled to size 8.50006pt on input line 231.
+(Font)              scaled to size 8.50006pt on input line 241.
 
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 228--265
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 238--275
 []$[]$ $[]$ 
  []
 
 
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 269--301
+Overfull \hbox (2.2222pt too wide) in paragraph at lines 279--311
 []$[]$ $[]$ 
  []
 
 
-Overfull \hbox (84.74023pt too wide) in paragraph at lines 304--342
+Overfull \hbox (84.74023pt too wide) in paragraph at lines 314--352
 []$[]$ $[]$ 
  []
 
 [6]
-Overfull \hbox (2.82294pt too wide) in paragraph at lines 349--350
+Overfull \hbox (2.82294pt too wide) in paragraph at lines 359--360
 \OT1/cmr/m/n/10 ven-tion so that the plug-in knows how to pro-cess it. In this 
 ex-am-ple, the \OT1/cmr/bx/n/10 REC@rightsearchOK
  []
 
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 355.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 365.
 
 (/usr/share/texmf-texlive/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 355.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 365.
 
-<img/pix.jpg, id=102, 743.77875pt x 551.81157pt>
+<img/pix.jpg, id=107, 743.77875pt x 551.81157pt>
 File: img/pix.jpg Graphic file (type jpg)
  <use img/pix.jpg>
-<img/alg.jpg, id=105, 562.1pt x 489.83pt>
+<img/alg.jpg, id=110, 562.1pt x 489.83pt>
 File: img/alg.jpg Graphic file (type jpg)
  <use img/alg.jpg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-AED: lastpage setting LastPage [7 </home/zcheng/myRepo/EB2RA/img/pix.jpg>]
-[8 </home/zcheng/myRepo/EB2RA/img/alg.jpg (PNG copy)>]
-(/home/zcheng/myRepo/EB2RA/Doc.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+[7 </home/zcheng/myRepo/EB2RA/img/pix.jpg>] (/home/zcheng/myRepo/EB2RA/Doc.bbl)
+AED: lastpage setting LastPage [8 </home/zcheng/myRepo/EB2RA/img/alg.jpg (PNG c
+opy)>] (/home/zcheng/myRepo/EB2RA/Doc.aux) ) 
 Here is how much of TeX's memory you used:
- 9859 strings out of 495061
- 143099 string characters out of 1182621
- 249220 words of memory out of 3000000
- 12799 multiletter control sequences out of 15000+50000
+ 9868 strings out of 495061
+ 143250 string characters out of 1182621
+ 249284 words of memory out of 3000000
+ 12802 multiletter control sequences out of 15000+50000
  17892 words of font info for 64 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 47i,17n,45p,770b,1116s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{algorithm.1} has been referenced but does not exi
-st, replaced by a fixed one
+ 47i,17n,48p,803b,1116s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{algorit
+hm.1} has been referenced but does not exist, replaced by a fixed one
 
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texlive
 /fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-texlive/fonts/type
@@ -733,9 +726,9 @@ ive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/t
 ype1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-texlive/fonts/type1/public/
 amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvr8
 a.pfb>
-Output written on Doc.pdf (8 pages, 370950 bytes).
+Output written on Doc.pdf (8 pages, 376066 bytes).
 PDF statistics:
- 187 PDF objects out of 1000 (max. 8388607)
- 36 named destinations out of 1000 (max. 500000)
+ 196 PDF objects out of 1000 (max. 8388607)
+ 39 named destinations out of 1000 (max. 500000)
  80 words of extra memory for PDF output out of 10000 (max. 10000000)
 

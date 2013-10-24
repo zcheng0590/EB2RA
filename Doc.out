@@ -3,6 +3,6 @@
 \BOOKMARK [2][-]{subsection.2.1}{Processing Event with Recursive/Call Type}{section.2}
 \BOOKMARK [2][-]{subsection.2.2}{Representing in Control Flow Graph}{section.2}
 \BOOKMARK [2][-]{subsection.2.3}{Representing in Recursive Algorithm}{section.2}
-\BOOKMARK [1][-]{section.3}{Proof Obligations}{}
-\BOOKMARK [1][-]{section.4}{Case Study}{}
-\BOOKMARK [2][-]{subsection.4.1}{Binary Search Algorithm}{section.4}
+\BOOKMARK [2][-]{subsection.2.4}{Proof Obligations}{section.2}
+\BOOKMARK [1][-]{section.3}{Case Study}{}
+\BOOKMARK [2][-]{subsection.3.1}{Binary Search Algorithm}{section.3}
