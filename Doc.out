@@ -1,7 +1,7 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}
 \BOOKMARK [1][-]{section.2}{The Translation Procedure}{}
 \BOOKMARK [2][-]{subsection.2.1}{Processing Event with Recursive/Call Type}{section.2}
-\BOOKMARK [2][-]{subsection.2.2}{Representing in Control Flow Graph}{section.2}
+\BOOKMARK [2][-]{subsection.2.2}{Representing as a Control Flow Graph}{section.2}
 \BOOKMARK [2][-]{subsection.2.3}{Representing in Recursive Algorithm}{section.2}
 \BOOKMARK [2][-]{subsection.2.4}{Proof Obligations}{section.2}
 \BOOKMARK [1][-]{section.3}{Case Study}{}
